@@ -1,4 +1,4 @@
-# Vehicle Fuel and Maintenance Tracker
+# Fuel Tracker
 
 ***Live Site:*** [https://fueltracker-app.pages.dev/](https://fueltracker-app.pages.dev/)
 
@@ -10,7 +10,7 @@
 
 ---
 
-Vehicle Fuel and Maintenance Tracker is a responsive web application designed for motorists to log refueling entries, monitor vehicle fuel efficiency, track maintenance history, and receive timely service interval alerts. Built with an offline-first architecture, the application stores data locally via localStorage while offering real-time cloud synchronization through Firebase Authentication and Cloud Firestore.
+Fuel Tracker is a responsive web application designed for motorists to log refueling entries, monitor vehicle fuel efficiency, track maintenance history, and receive timely service interval alerts. Built with an offline-first architecture, the application stores data locally via localStorage while offering real-time cloud synchronization through Firebase Authentication and Cloud Firestore.
 
 ## Tech Stack
 - Frontend: HTML5, JavaScript (ES6+), TypeScript
