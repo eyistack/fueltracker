@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Fuel & Mileage Tracker</title>
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <script>
+        if (localStorage.getItem('fuel_tracker_theme') === 'dark' || (!('fuel_tracker_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-black text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-200">
+    <div class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b border-slate-200 dark:border-neutral-800 pb-6">
+            <div class="flex items-center space-x-3">
+                <a href="/" class="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors" title="Back to App">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                <div>
+                    <h1 class="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">Fuel Tracker</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Legal Documentation</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="/" class="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center space-x-1">
+                    <span>Back to App</span>
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-500 hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-neutral-900 transition-colors">
+                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="bg-white dark:bg-neutral-950 rounded-3xl border border-slate-100 dark:border-neutral-900 p-8 sm:p-12 shadow-sm space-y-8">
+            <div class="border-b border-slate-100 dark:border-neutral-900 pb-6">
+                <span class="inline-block px-3 py-1 text-xs font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 rounded-full mb-3">Privacy First</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Privacy Policy</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Last updated: October 2026</p>
+            </div>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">1. Overview</h3>
+                <p>
+                    Fuel Tracker is engineered with a privacy-first, offline-first architecture. We believe your personal vehicle logs, travel habits, and financial expenditures belong exclusively to you. This Privacy Policy details how data is handled across both local usage and optional cloud-synchronization modes.
+                </p>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">2. Data Storage Methods</h3>
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-neutral-900 border border-slate-200/80 dark:border-neutral-800 space-y-3">
+                    <h4 class="font-semibold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="hard-drive" class="w-4 h-4 text-indigo-500"></i>
+                        <span>Local-Only Mode (Default / Unauthenticated)</span>
+                    </h4>
+                    <p class="text-sm">
+                        When you use Fuel Tracker without signing into an account, <strong>no personal data or vehicle records are sent to our servers</strong>. All refueling logs (date, odometer reading, fuel volume, cost), maintenance records (service category, cost, odometer, notes), and theme preferences are saved solely within your device's web browser using <code class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-neutral-800 text-xs">localStorage</code>.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-neutral-900 border border-slate-200/80 dark:border-neutral-800 space-y-3">
+                    <h4 class="font-semibold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="cloud" class="w-4 h-4 text-indigo-500"></i>
+                        <span>Cloud Sync Mode (Optional / Authenticated)</span>
+                    </h4>
+                    <p class="text-sm">
+                        If you choose to register an account to sync your vehicle records across multiple devices, the following data is processed and stored:
+                    </p>
+                    <ul class="list-disc list-inside text-sm space-y-1.5 pl-2">
+                        <li><strong>Account Credentials:</strong> Your email address and securely hashed password, managed via Google Firebase Authentication.</li>
+                        <li><strong>Vehicle Logs:</strong> Your refueling entries and maintenance records, stored in a secure Google Cloud Firestore database under your isolated, authenticated user account ID.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">3. How Your Information Is Used</h3>
+                <p>We use your information exclusively to provide the core services of the application:</p>
+                <ul class="list-disc list-inside space-y-2 pl-2">
+                    <li>Calculating fuel economy metrics, average mileage, latest trip mileage, and running costs.</li>
+                    <li>Generating interactive charts showing your fuel efficiency and fuel cost trends over time.</li>
+                    <li>Calculating maintenance intervals and displaying upcoming service reminder alerts.</li>
+                    <li>Synchronizing records seamlessly between your logged-in mobile and desktop devices.</li>
+                </ul>
+                <p>We do not use your vehicle data for profiling, targeted advertising, behavioral marketing, or automated decision-making.</p>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">4. Third-Party Services and Data Sharing</h3>
+                <p>
+                    We <strong>never sell, rent, monetize, or trade</strong> your personal information or vehicle logs to third parties. We do not integrate third-party ad networks or surveillance trackers.
+                </p>
+                <p>
+                    For users who opt into Cloud Sync, backend hosting, user authentication, and real-time database persistence are provided by <strong>Google Cloud Platform / Firebase</strong>. Google processes this information in accordance with their industry-standard security and compliance standards.
+                </p>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">5. Data Ownership, Export, and Deletion</h3>
+                <p>You maintain full ownership of your data at all times:</p>
+                <ul class="list-disc list-inside space-y-2 pl-2">
+                    <li><strong>Data Export:</strong> You can export your entire refueling history to a portable CSV file at any moment directly from the application interface.</li>
+                    <li><strong>Data Deletion:</strong> You can delete any individual refueling or maintenance entry at any time. When deleted, it is immediately removed from your local storage and synchronized database.</li>
+                    <li><strong>Clearing Local Data:</strong> Clearing your browser's site data or cache permanently wipes all local records.</li>
+                </ul>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">6. Security</h3>
+                <p>
+                    Communications with cloud sync servers are encrypted using modern Transport Layer Security (TLS/HTTPS). Stored database records are protected by Firestore security rules that strictly ensure users can only view and modify their own records.
+                </p>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">7. Changes to This Policy</h3>
+                <p>
+                    We may occasionally update this Privacy Policy to reflect app enhancements or legal requirements. Any modifications will be posted directly to this page with an updated revision date.
+                </p>
+            </section>
+
+            <section class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">8. Contact Us</h3>
+                <p>
+                    If you have questions or inquiries regarding this Privacy Policy or your data, please reach out through the application repository or contact your system administrator.
+                </p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="pt-6 border-t border-slate-200 dark:border-neutral-800 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 Fuel Tracker. All rights reserved.</p>
+                <div class="flex items-center space-x-6">
+                    <a href="/" class="hover:text-slate-900 dark:hover:text-white transition-colors">App</a>
+                    <a href="/privacy" class="text-indigo-600 dark:text-indigo-400 font-medium">Privacy Policy</a>
+                    <a href="/terms" class="hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        function updateThemeIcon() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            lucide.createIcons();
+        }
+        updateThemeIcon();
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('fuel_tracker_theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('fuel_tracker_theme', 'dark');
+            }
+            updateThemeIcon();
+        });
+    </script>
+</body>
+</html>
